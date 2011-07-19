@@ -5,7 +5,7 @@ module Searchlogic
     # Handles all method magic, creating methods on the fly, etc. This is needed for modifiers.
     module MagicMethods
       def self.included(klass)
-        klass.metaclass.class_eval do
+        klass.singleton_class.class_eval do
           include ClassMethods
           attr_accessor :added_class_level_conditions, :added_column_equals_conditions, :added_associations
         end
